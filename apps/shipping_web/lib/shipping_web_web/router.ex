@@ -20,7 +20,7 @@ defmodule ShippingWebWeb.Router do
       post "send-load-request", DriverController, :send_load_request
       post "pick-load/", DriverController, :pick_up_load
       post "change-vehicle-position/", DriverController, :change_vehicle_position
-      get "deliver-load", DriverController, :deliver_load
+      post "deliver-load", DriverController, :deliver_load
     end
 
     scope "/shipper" do
