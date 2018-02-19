@@ -16,11 +16,11 @@ defmodule ShippingWebWeb.Router do
   scope "/api", ShippingWebWeb do
     pipe_through :api
 
-    scope "/driver" do
-      # send load requests
-      # pick up load
-      # change vehicle position
-      # deliver load
+    scope "/driver/:driver_id" do
+      post "send-load-request", DriverController, :send_load_request
+      post "pick-load/", DriverController, :pick_up_load
+      post "change-vehicle-position/", DriverController, :change_vehicle_position
+      get "deliver-load", DriverController, :deliver_load
     end
 
     scope "/shipper" do
@@ -28,6 +28,10 @@ defmodule ShippingWebWeb.Router do
       # accept load request
       # complete load
       # cancel load
+    end
+
+    scope "/tracker" do
+
     end
   end
 end
