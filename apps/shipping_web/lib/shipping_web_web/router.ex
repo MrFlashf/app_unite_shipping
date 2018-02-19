@@ -13,14 +13,21 @@ defmodule ShippingWebWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ShippingWebWeb do
-    pipe_through :browser # Use the default browser stack
+  scope "/api", ShippingWebWeb do
+    pipe_through :api
 
-    get "/", PageController, :index
+    scope "/driver" do
+      # send load requests
+      # pick up load
+      # change vehicle position
+      # deliver load
+    end
+
+    scope "/shipper" do
+      # create_load
+      # accept load request
+      # complete load
+      # cancel load
+    end
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", ShippingWebWeb do
-  #   pipe_through :api
-  # end
 end
